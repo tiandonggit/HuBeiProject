@@ -77,13 +77,16 @@
             </div>
           </div>
           <div class="content">
-            <el-carousel height="227px" :interval="2000">
-              <el-carousel-item v-for="(honorary, index) in honoraryImgList" :key="index">
-                <div class="img-box">
-                  <img :src="honorary" />
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+
+                <div class="swiper-slide" v-for="(honoraryImg, index) in honoraryImgList" :key="index">
+                  <div class="img-box">
+                    <img :src="honoraryImg" :srcset="honoraryImg" class="swiper-lazy" />
+                  </div>
                 </div>
-              </el-carousel-item>
-            </el-carousel>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -232,23 +235,27 @@ export default {
     };
   },
   mounted() {
-    this.swiper = new Swiper(".swiper-container", {
-      effect: "coverflow",
-      loop: false,
-      grabCursor: true,
-      onlyExternal: false,
-      centeredSlides: true,
-      slidesPerView: "auto",
-      autoplayDisableOnInteraction: false,
-      coverflow: {
-        rotate: 10,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: false
-      },
-      spaceBetween: 30
-    });
+      this.swiper = new Swiper('.swiper-container', {
+          autoplay: {
+              delay: 3000,
+              disableOnInteraction: false,
+          },
+          loop: true,
+          speed: 700,
+          allowTouchMove: false,
+          centeredSlides: true,
+          spaceBetween: 25,
+          slidesOffsetBefore: 40,
+          slidesPerView: 'auto',
+          on: {
+              slideChangeTransitionEnd: function(){
+                  this.slides.transition(this.params.autoplay.delay+this.params.speed).transform('translate3d(-60px, 0, 0)');
+              },
+              slideChangeTransitionStart: function(){
+                  this.slides.transition(this.params.speed).transform('translate3d(0, 0, 0)');
+              },
+          },
+      });
   },
   methods: {
     selectProductMenu(index) {
@@ -267,6 +274,11 @@ export default {
 <style scoped lang="less">
 @import "../assets/css/cssCommon";
 #index {
+  .swiper-slide {
+    width: 332px !important;
+    transition-timing-function: linear;
+  }
+
   /deep/ .el-carousel__button {
     width: 8px;
     height: 8px;
@@ -485,6 +497,7 @@ export default {
         color: @fontColor00;
         line-height: 16px;
         margin-top: 34px;
+        margin-bottom: 16px;
       }
 
       span {
