@@ -20,7 +20,7 @@
         <div
           class="block fl pointer"
           :class="{margin: index%4 === 3}"
-          v-for="(item, index) in caseList"
+          v-for="(item, index) in productList"
           :key="index"
           @click="details(index)"
         >
@@ -66,7 +66,7 @@ export default {
         { name: "防水卷材", isActive: true },
         { name: "防水涂料", isActive: false }
       ],
-      caseList: [
+      productList: [
         {
           name1: "TPZM-001",
           name2: "自粘聚合物改性沥青防水卷材",

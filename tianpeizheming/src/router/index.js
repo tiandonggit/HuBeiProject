@@ -18,6 +18,8 @@ const productCenter = () =>
   import(/* webpackChunkName: "productCenter" */ "../views/productCenter.vue");
 const contactUs = () =>
   import(/* webpackChunkName: "contactUs" */ "../views/contactUs.vue");
+const productDetails = () =>
+  import(/* webpackChunkName: "productDetails" */ "../views/productDetails.vue");
 const routes = [
   {
     path: "/",
@@ -53,6 +55,11 @@ const routes = [
     path: "/contactUs",
     name: "contactUs",
     component: contactUs
+  },
+  {
+    path: "/productDetails",
+    name: "productDetails",
+    component: productDetails
   }
 ];
 

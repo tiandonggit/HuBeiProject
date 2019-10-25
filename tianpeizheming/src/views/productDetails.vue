@@ -1,22 +1,42 @@
 <template>
-  <div id="caseDetails">
+  <div id="productDetails">
     <commonHeader :num="num" />
 
     <div class="section">
       <div class="public-bg">
-        <img src="../assets/img/case_bg.png" alt />
+        <img src="../assets/img/product_bg.png" alt />
       </div>
 
       <div class="public-title container">
-        <span>首页>案例展示>{{caseDetails.name}}</span>
-        <p class="title">{{caseDetails.name}}</p>
+        <span>首页>{{ChName}}</span>
       </div>
-      <div class="content container">
-        <img :src="caseDetails.img" alt />
-        <p class="prompt">案例介绍</p>
-        <p class="text" v-html="caseDetails.content"></p>
-        <p class="prev" @click="cut(0)">上一篇：{{caseDetails.prev ? caseDetails.prev : "没有了"}}</p>
-        <p class="next" @click="cut(1)">下一篇：{{caseDetails.next ? caseDetails.next : "没有了"}}</p>
+      <div class="content container cf">
+        <div class="left fl">
+          <div class="top">
+            <div class="product-classify">产品分类</div>
+            <div class="product-menu">防水卷材</div>
+            <div class="product-menu">防水涂料</div>
+          </div>
+          <div class="bottom">
+            <div class="product-classify">产品分类</div>
+            <div class="hot-product" v-for="(hotProduct, index) in hotProductList" :key="index">{{hotProduct.name}}</div>
+          </div>
+        </div>
+        <div class="right fr">
+          <div class="top cf">
+            <div class="img-box fl">
+              <img :src="productDetails.img" alt="">
+            </div>
+            <div class="info fr">
+              <p class="title">{{productDetails.name1}} {{productDetails.name2}}</p>
+              <p>所属分类：防水卷材</p>
+              <p>点击次数：500</p>
+              <p>上架时间：2019/10/23</p>
+              <div class="btn pointer">立即询价</div>
+            </div>
+          </div>
+          <div class="bottom"></div>
+        </div>
       </div>
     </div>
 
@@ -29,18 +49,27 @@ import commonHeader from "@/components/commonHeader.vue";
 import commonFooter from "@/components/commonFooter.vue";
 
 export default {
-  name: "caseDetails",
+  name: "productDetails",
   components: { commonHeader, commonFooter },
   data() {
     return {
-      num: 4,
-      BgImg: require("../assets/img/case_bg.png"),
-      ChName: "案例展示",
-      EnName: "case shows",
+      num: 3,
+      ChName: "产品中心",
       id: 0,
-      caseDetailsList: [
+      hotProductList: [
+          {name: "TPZM-001自粘聚合物改性沥青防水卷材", id: 1},
+          {name: "TPZM-002 预铺/湿铺防水卷材", id: 2},
+          {name: "TPZM-003 SBS弹性体改性沥青防水卷材", id: 3},
+          {name: "TPZM-004 耐根穿刺弹性体(SBS)耐根穿刺弹性体", id: 4},
+          {name: "TPZM-005 金属聚Z烯复合沥青自金属聚Z烯复合沥青自", id: 5},
+          {name: "TPZM-006 改性沥青聚烯胎耐根穿改性沥青聚烯胎耐根穿……", id: 6},
+          {name: "TPZM-007 强力交叉叠压膜高分子强力交叉叠压膜高分子……", id: 7},
+          {name: "TPZM-008 强力膜高分子反应型自沥青聚烯胎耐根穿改性沥青聚烯胎耐根穿……", id: 8},
+      ],
+      productDetailsList: [
         {
-          name: "西湖文体中心",
+          name1: "西湖文体中心",
+          name2: "西湖文体中心",
           img: require("../assets/img/engineering_1@2x.png"),
           content:
             "杭州城西文化新地标——西湖区文体中心正式全面启用。西湖区文体中心坐落于西湖区晴川街217号，毗邻西溪国家湿地公园北门，总建筑面积12.6万平方米，地上建筑面积6.6万平方米，集会议中心、体育中心、青少年活动中心、办公区等多个功能于一体。<br>其中，体育中心有综合馆、羽毛球馆、游泳馆等体育场馆18个，会议中心有千人会场、报告厅等会议室6个。配套停车位900多个，可同时容纳5000人开展文化体育活动，单日最大接待量超过30000人次。",
@@ -88,23 +117,23 @@ export default {
           next: ""
         }
       ],
-      caseDetails: "",
+      productDetails: "",
       total: 6
     };
   },
   watch: {
     $route(val) {
       this.id = val.query.id;
-      this.getCaseDetails();
+      this.getProductDetails();
     }
   },
   created() {
     this.id = this.$route.query.id ? this.$route.query.id : 0;
-    this.caseDetails = this.caseDetailsList[this.id];
+    this.productDetails = this.productDetailsList[this.id];
   },
   methods: {
-    getCaseDetails() {
-      this.caseDetails = this.caseDetailsList[this.id];
+      getProductDetails() {
+      this.productDetails = this.productDetailsList[this.id];
     },
     cut(num) {
       // 0: 上一篇； 1：下一篇
@@ -114,12 +143,12 @@ export default {
         }
         this.id--;
       } else {
-        if (this.id === this.caseDetailsList.length) {
+        if (this.id === this.productDetailsList.length) {
           return;
         }
         this.id++;
       }
-      this.$router.push({ name: "caseDetails", query: { id: this.id } });
+      this.$router.push({ name: "productDetails", query: { id: this.id } });
     }
   }
 };
@@ -127,7 +156,7 @@ export default {
 
 <style scoped lang="less">
 @import "../assets/css/cssCommon";
-#caseDetails {
+#productDetails {
   .section {
     .public-title {
       .title {
@@ -142,45 +171,116 @@ export default {
     }
 
     .content {
-      padding: 56px 0 76px;
+      padding: 21px 0 41px;
 
-      img {
-        width: 720px;
-        margin: 0 auto;
-      }
+      .left {
+        width: 277px;
 
-      .prompt {
-        margin-top: 43px;
-        font-size: 18px;
-        font-family: Microsoft YaHei;
-        font-weight: bold;
-        color: @fontColor00;
-        line-height: 19px;
-      }
+        .product-classify {
+          height: 51px;
+          background: @bgMenu;
+          font-size: 20px;
+          font-family: Microsoft YaHei;
+          font-weight: 400;
+          color: @fontColorff;
+          line-height: 51px;
+          text-align: center;
+        }
 
-      .text {
-        margin: 20px 0 41px;
-        font-size: 14px;
-        font-family: Microsoft YaHei;
-        font-weight: 400;
-        color: @fontColor4C;
-        line-height: 25px;
-      }
+        .top {
+          margin-bottom: 21px;
+          text-align: center;
+          border: 1px solid @borderBF;
+          border-top: none;
 
-      .prev,
-      .next {
-        margin-bottom: 13px;
-        font-size: 14px;
-        font-family: Microsoft YaHei;
-        font-weight: 400;
-        color: @fontColor00;
-        line-height: 15px;
-        cursor: pointer;
+          .product-menu {
+            height: 63px;
+            font-size: 16px;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: @fontColor00;
+            background: @bgColorF7;
+            border-top: 1px solid @borderDC;
+            line-height:63px;
+            cursor: pointer;
+          }
+        }
 
-        &:hover {
-          text-decoration: underline;
+        .bottom {
+          border: 1px solid @borderBF;
+          border-top: none;
+
+          .hot-product {
+            height: 45px;
+            font-size: 14px;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: @fontColor50;
+            background: @bgColorF7;
+            border-top: 1px solid @borderDC;
+            line-height: 45px;
+            cursor: pointer;
+            padding-left: 9px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
         }
       }
+
+      .right {
+        width: 888px;
+
+        .top {
+          .img-box {
+            width: 348px;
+            height: 243px;
+            overflow: hidden;
+
+            img {
+              width: 100%;
+            }
+          }
+
+          .info {
+            width: 493px;
+
+            p {
+              font-size: 14px;
+              font-family: Microsoft YaHei;
+              font-weight: 400;
+              color: @fontColor4D;
+              line-height: 14px;
+              padding-bottom: 8px;
+              margin-bottom:13px;
+              border-bottom: 1px solid @borderE5;
+            }
+
+            p.title {
+              font-size: 20px;
+              font-family: Microsoft YaHei;
+              font-weight: bold;
+              color: @fontColor4D;
+              line-height: 20px;
+              margin-bottom: 25px;
+              border-bottom: none;
+            }
+
+            .btn {
+              margin-top: 43px;
+              width:139px;
+              height:45px;
+              background:@bgMenu;
+              border:1px solid @borderBF;
+              color: @fontColorff;
+              border-radius:10px;
+              text-align: center;
+              line-height: 45px;
+            }
+          }
+        }
+      }
+
     }
   }
 }

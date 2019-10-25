@@ -42,6 +42,10 @@ img {
   display: block;
 }
 
+input, textarea {
+  outline: none;
+}
+
 // 公共样式
 .pointer {
   cursor: pointer;

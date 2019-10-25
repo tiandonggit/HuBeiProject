@@ -23,7 +23,29 @@
           <div class="right fr">
             <p class="title">在线留言:</p>
             <div class="box">
-              <p></p>
+              <div class="top cf">
+                <div class="input-block fl">
+                  <p>姓名</p>
+                  <input type="text" placeholder="请输入您的名字">
+                </div>
+                <div class="input-block fl">
+                  <p>邮箱</p>
+                  <input type="text" placeholder="请输入您的邮箱">
+                </div>
+                <div class="input-block fl">
+                  <p>电话</p>
+                  <input type="text" placeholder="请输入您的电话号码">
+                </div>
+              </div>
+              <div class="middle">
+                <div class="input-block fl">
+                  <p>内容</p>
+                  <textarea placeholder="请输入您的名字"></textarea>
+                </div>
+              </div>
+              <div class="bottom fr">
+                <a>提交留言</a>
+              </div>
             </div>
           </div>
         </div>
@@ -119,6 +141,98 @@ export default {
               color: @fontColor5F;
               line-height: 13px;
               margin-top: 9px;
+            }
+          }
+
+          ::-webkit-input-placeholder {
+            color: @fontColorAD;
+          }
+          ::-moz-placeholder {
+            color: @fontColorAD;
+          }
+          :-ms-input-placeholder {
+            color: @fontColorAD;
+          }
+          :-moz-placeholder {
+            color: @fontColorAD;
+          }
+
+          input, textarea {
+            font-size:14px;
+            font-family:Microsoft YaHei;
+            font-weight:400;
+            border: 1px solid @borderBF;
+            line-height:14px;
+            border-radius:10px;
+          }
+
+          .top {
+            padding-top: 24px;
+            .input-block {
+              width: 213px;
+              margin-right: 29px;
+
+              &:last-child {
+                margin-right: 0;
+              }
+
+              p {
+                padding-left: 16px;
+                margin-bottom: 8px;
+                font-size: 16px;
+                font-family: Microsoft YaHei;
+                font-weight: 400;
+                color: @fontColor1D;
+                line-height: 16px;
+              }
+
+              input {
+                width: 213px;
+                padding: 9px 16px 10px;
+                line-height: 15px;
+              }
+            }
+          }
+
+          .middle {
+            padding-top: 15px;
+            .input-block {
+              p {
+                padding-left: 16px;
+                margin-bottom: 8px;
+                font-size: 16px;
+                font-family: Microsoft YaHei;
+                font-weight: 400;
+                color: @fontColor1D;
+                line-height: 16px;
+              }
+
+              textarea {
+                width: 698px;
+                height: 81px;
+                padding: 14px 16px;
+              }
+            }
+          }
+
+          .bottom {
+            width: 131px;
+            height: 45px;
+              margin-top:13px;
+            background: @bgMenu;
+            border: 1px solid @borderBF;
+            border-radius: 10px;
+            display: flex;
+              justify-content: center;
+              align-items: center;
+
+
+            a {
+              font-size: 16px;
+              font-family: Microsoft YaHei;
+              font-weight: 400;
+              color: @fontColorff;
+              line-height: 16px;
             }
           }
         }

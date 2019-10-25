@@ -145,6 +145,7 @@ export default {
         }
         p {
           font-size: 12px;
+          margin-top: 9px;
           font-family: Microsoft YaHei;
           font-weight: 400;
           color: @fontColorff;

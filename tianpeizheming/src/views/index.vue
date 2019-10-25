@@ -169,67 +169,67 @@ export default {
         { name: "防水涂料", isActive: false }
       ],
       productList: [
-        {
-          name1: "TPZM-002",
-          name2: "金属聚Z烯复合沥青自粘防水卷材",
-          img: require("../assets/img/product_1.png")
-        },
-        {
-          name1: "TPZM-002",
-          name2: "金属聚Z烯合沥青自粘防合沥青自粘防合沥青自粘防卷材",
-          img: require("../assets/img/product_1.png")
-        },
-        {
-          name1: "TPZM-002",
-          name2: "金属聚Z烯复合沥青自粘防水卷材",
-          img: require("../assets/img/product_1.png")
-        },
-        {
-          name1: "TPZM-002",
-          name2: "金属聚Z烯复合沥青自粘防水卷材",
-          img: require("../assets/img/product_1.png")
-        },
-        {
-          name1: "TPZM-002",
-          name2: "金属聚Z烯复合沥青自粘防合沥青自粘防水卷材",
-          img: require("../assets/img/product_1.png")
-        },
-        {
-          name1: "TPZM-002",
-          name2: "金属聚Z烯复合沥青自粘防水卷材",
-          img: require("../assets/img/product_1.png")
-        },
-        {
-          name1: "TPZM-002",
-          name2: "金属聚Z烯复合沥青自粘防水卷材",
-          img: require("../assets/img/product_1.png")
-        },
-        {
-          name1: "TPZM-002",
-          name2: "金属聚Z烯合沥青自粘防合沥青自粘防合沥青自粘防卷材",
-          img: require("../assets/img/product_1.png")
-        },
-        {
-          name1: "TPZM-002",
-          name2: "金属聚Z烯复合沥青自粘防水卷材",
-          img: require("../assets/img/product_1.png")
-        },
-        {
-          name1: "TPZM-002",
-          name2: "金属聚Z烯复合沥青自粘防水卷材",
-          img: require("../assets/img/product_1.png")
-        },
-        {
-          name1: "TPZM-002",
-          name2: "金属聚Z烯复合沥青自粘防合沥青自粘防水卷材",
-          img: require("../assets/img/product_1.png")
-        },
-        {
-          name1: "TPZM-002",
-          name2: "金属聚Z烯复合沥青自粘防水卷材",
-          img: require("../assets/img/product_1.png")
-        }
-      ],
+            {
+                name1: "TPZM-001",
+                name2: "自粘聚合物改性沥青防水卷材",
+                img: require("../assets/img/product_1.png")
+            },
+            {
+                name1: "TPZM-002",
+                name2: "预铺/湿铺防水卷材",
+                img: require("../assets/img/product_2.png")
+            },
+            {
+                name1: "TPZM-003",
+                name2: "SBS弹性体改性沥青防水卷材",
+                img: require("../assets/img/product_3.png")
+            },
+            {
+                name1: "TPZM-004",
+                name2: "耐根穿刺弹性体(SBS)改性沥青防水卷材",
+                img: require("../assets/img/product_4.png")
+            },
+            {
+                name1: "TPZM-005",
+                name2: "金属聚Z烯复合沥青自粘防水卷材",
+                img: require("../assets/img/product_5.png")
+            },
+            {
+                name1: "TPZM-006",
+                name2: "改性沥青聚烯胎耐根穿刺防水卷材",
+                img: require("../assets/img/product_6.png")
+            },
+            {
+                name1: "TPZM-007",
+                name2: " 强力交叉叠压膜高分子耐久反应粘 防水卷材",
+                img: require("../assets/img/product_7.png")
+            },
+            {
+                name1: "TPZM-008",
+                name2: "强力膜高分子反应型自粘防水卷材",
+                img: require("../assets/img/product_8.png")
+            },
+            {
+                name1: "TPZM-009",
+                name2: "高分子片材自粘胶膜防水卷材",
+                img: require("../assets/img/product_9.png")
+            },
+            {
+                name1: "TPZM-010",
+                name2: "高分子自粘胶膜防水卷材(非沥青基)",
+                img: require("../assets/img/product_10.png")
+            },
+            {
+                name1: "TPZM-011",
+                name2: "聚乙烯丙(涤)纶高分子复合防水卷材",
+                img: require("../assets/img/product_11.png")
+            },
+            {
+                name1: "TPZM-012",
+                name2: "聚氯乙烯( PVC )防水卷材",
+                img: require("../assets/img/product_12.png")
+            }
+        ],
       honoraryImgList: [
         {
           name: "3A级证书",
