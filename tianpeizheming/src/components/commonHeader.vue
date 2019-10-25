@@ -31,12 +31,12 @@
 export default {
   name: "commonHeader",
   props: {
-    msg: String
+    num: Number
   },
   data() {
     return {
       menuList: [
-        { name: "首页", isActive: true },
+        { name: "首页", isActive: false },
         { name: "关于我们", isActive: false },
         { name: "荣誉资质", isActive: false },
         { name: "产品中心", isActive: false },
@@ -45,21 +45,28 @@ export default {
       ]
     };
   },
+  created() {
+    this.menuList.forEach((v, e) => {
+      if (this.num === e) {
+        this.menuList[e].isActive = true;
+      } else {
+        this.menuList[e].isActive = false;
+      }
+    });
+  },
   methods: {
     selectMenu(index) {
-      this.menuList.forEach((v, e) => {
-        if (index === e) {
-          this.menuList[e].isActive = true;
-        } else {
-          this.menuList[e].isActive = false;
-        }
-      });
+      index === 0 && this.$router.push({ name: "index" });
+      index === 1 && this.$router.push({ name: "aboutUs" });
+      index === 2 && this.$router.push({ name: "honoraryCertificate" });
+      index === 3 && this.$router.push({ name: "productCenter" });
+      index === 4 && this.$router.push({ name: "caseShows" });
+      index === 5 && this.$router.push({ name: "contactUs" });
     }
   }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
 @import "../assets/css/cssCommon";
 #commonHeader {

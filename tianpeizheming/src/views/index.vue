@@ -1,7 +1,7 @@
 <template>
   <div id="index">
     <!-- 头 -->
-    <commonHeader />
+    <commonHeader :num="num" />
     <!-- 内容 -->
     <div class="section">
       <!-- 轮播 -->
@@ -79,10 +79,14 @@
           <div class="content">
             <div class="swiper-container">
               <div class="swiper-wrapper">
-
-                <div class="swiper-slide" v-for="(honoraryImg, index) in honoraryImgList" :key="index">
+                <div
+                  class="swiper-slide"
+                  v-for="(honoraryImg, index) in honoraryImgList"
+                  :key="index"
+                >
                   <div class="img-box">
-                    <img :src="honoraryImg" :srcset="honoraryImg" class="swiper-lazy" />
+                    <img :src="honoraryImg.img" class="swiper-lazy" />
+                    <p>{{honoraryImg.name}}</p>
                   </div>
                 </div>
               </div>
@@ -128,6 +132,7 @@ export default {
   components: { commonHeader, commonFooter },
   data() {
     return {
+      num: 0,
       bannerList: [
         require("../assets/img/banner_1.png"),
         require("../assets/img/banner_1.png"),
@@ -135,28 +140,28 @@ export default {
       ],
       engineeringList: [
         {
-          name: "1、西湖文体中心",
-          img: require("../assets/img/engineering_1.jpg")
+          name: "西湖文体中心",
+          img: require("../assets/img/engineering_1.png")
         },
         {
-          name: "2、西湖文体中心",
-          img: require("../assets/img/engineering_2.jpg")
+          name: "首开金茂府",
+          img: require("../assets/img/engineering_2.png")
         },
         {
-          name: "3、西湖文体中心",
-          img: require("../assets/img/engineering_3.jpg")
+          name: "汇高柏悦中心",
+          img: require("../assets/img/engineering_3.png")
         },
         {
-          name: "4、西湖文体中心",
-          img: require("../assets/img/engineering_4.jpg")
+          name: "汇高柏悦府",
+          img: require("../assets/img/engineering_4.png")
         },
         {
-          name: "5、西湖文体中心",
-          img: require("../assets/img/engineering_5.jpg")
+          name: "凤起钱潮",
+          img: require("../assets/img/engineering_5.png")
         },
         {
-          name: "6、西湖文体中心",
-          img: require("../assets/img/engineering_6.jpg")
+          name: "杭十四中",
+          img: require("../assets/img/engineering_6.png")
         }
       ],
       productMenuList: [
@@ -226,36 +231,64 @@ export default {
         }
       ],
       honoraryImgList: [
-        require("../assets/img/honorary_1.png"),
-        require("../assets/img/honorary_2.png"),
-        require("../assets/img/honorary_3.png"),
-        require("../assets/img/honorary_2.png")
+        {
+          name: "3A级证书",
+          img: require("../assets/img/honorary_1.jpg")
+        },
+        {
+          name: "安全生产许可证",
+          img: require("../assets/img/honorary_2.jpg")
+        },
+        {
+          name: "建筑业企业资质",
+          img: require("../assets/img/honorary_3.jpg")
+        },
+        {
+          name: "开户许可证",
+          img: require("../assets/img/honorary_4.jpg")
+        },
+        {
+          name: "营业执照",
+          img: require("../assets/img/honorary_5.jpg")
+        },
+        {
+          name: "营业执照",
+          img: require("../assets/img/honorary_6.jpg")
+        },
+        {
+          name: "质量管理体系认证证书",
+          img: require("../assets/img/honorary_7.jpg")
+        }
       ],
       swiper: ""
     };
   },
   mounted() {
-      this.swiper = new Swiper('.swiper-container', {
-          autoplay: {
-              delay: 3000,
-              disableOnInteraction: false,
-          },
-          loop: true,
-          speed: 700,
-          allowTouchMove: false,
-          centeredSlides: true,
-          spaceBetween: 25,
-          slidesOffsetBefore: 40,
-          slidesPerView: 'auto',
-          on: {
-              slideChangeTransitionEnd: function(){
-                  this.slides.transition(this.params.autoplay.delay+this.params.speed).transform('translate3d(-60px, 0, 0)');
-              },
-              slideChangeTransitionStart: function(){
-                  this.slides.transition(this.params.speed).transform('translate3d(0, 0, 0)');
-              },
-          },
-      });
+    this.swiper = new Swiper(".swiper-container", {
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+      },
+      loop: true,
+      speed: 700,
+      allowTouchMove: false,
+      centeredSlides: true,
+      spaceBetween: 25,
+      slidesOffsetBefore: 40,
+      slidesPerView: "auto",
+      on: {
+        slideChangeTransitionEnd: function() {
+          this.slides
+            .transition(this.params.autoplay.delay + this.params.speed)
+            .transform("translate3d(-60px, 0, 0)");
+        },
+        slideChangeTransitionStart: function() {
+          this.slides
+            .transition(this.params.speed)
+            .transform("translate3d(0, 0, 0)");
+        }
+      }
+    });
   },
   methods: {
     selectProductMenu(index) {
@@ -275,7 +308,7 @@ export default {
 @import "../assets/css/cssCommon";
 #index {
   .swiper-slide {
-    width: 332px !important;
+    width: 272px !important;
     transition-timing-function: linear;
   }
 
@@ -459,15 +492,33 @@ export default {
       padding-top: 50px;
 
       .img-box {
-        width: 332px;
-        height: 227px;
+        width: 272px;
+        height: 186px;
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
 
         img {
           max-width: 100%;
           max-height: 100%;
+        }
+
+        p {
+          text-align: center;
+          position: absolute;
+          width: 100%;
+          left: 0;
+          bottom: 0;
+          line-height: 16px;
+          height: 39px;
+          padding-top: 15px;
+          background: @bgColor00;
+          opacity: 0.7;
+          font-size: 16px;
+          font-family: Microsoft YaHei;
+          font-weight: 400;
+          color: @fontColorff;
         }
       }
 
