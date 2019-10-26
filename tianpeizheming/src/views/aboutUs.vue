@@ -19,7 +19,7 @@
       <div class="menu">
         <div class="container cf">
           <div
-            class="cell fl"
+            class="cell fl pointer"
             :style="{backgroundImage: 'url(' + item.img + ')'}"
             v-for="(item, index) in menuList"
             :key="index"
@@ -150,7 +150,7 @@ export default {
 
       .cell {
         width: 184px;
-        height: 46px;
+        height: 49px;
         margin-right: 70px;
         padding-left: 62px;
         border-right: 1px solid @borderB5;
