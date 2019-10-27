@@ -20,7 +20,7 @@
               <p>产品展示</p>
               <span>Product display</span>
             </div>
-            <div class="right fr">更多→</div>
+            <div class="right fr" @click="productCenter()">更多→</div>
           </div>
           <div class="content cf">
             <div class="left fl">
@@ -35,7 +35,7 @@
               </ul>
             </div>
             <div class="right fr">
-              <div class="block fl" v-for="(product, index) in productList" :key="index">
+              <div class="block fl pointer" v-for="(product, index) in productList" :key="index" @click="productDetails(index)">
                 <img :src="product.img" alt />
                 <p>{{product.name1}}</p>
                 <p>{{product.name2}}</p>
@@ -52,14 +52,15 @@
               <p>工程案例</p>
               <span>Engineering case</span>
             </div>
-            <div class="right fr">更多→</div>
+            <div class="right fr" @click="caseShows()">更多→</div>
           </div>
           <div class="content cf">
             <div
-              class="block fl"
+              class="block fl pointer"
               :class="{margin: index%3 === 1}"
               v-for="(engineering, index) in engineeringList"
               :key="index"
+              @click="caseDetails(index)"
             >
               <img :src="engineering.img" alt />
               <p>{{engineering.name}}</p>
@@ -299,7 +300,19 @@ export default {
           this.productMenuList[e].isActive = false;
         }
       });
-    }
+    },
+    productCenter() {
+        this.$router.push({ name: "productCenter" });
+    },
+    productDetails(index) {
+        this.$router.push({ name: "productDetails", query: {id: index} });
+    },
+      caseShows() {
+          this.$router.push({ name: "caseShows" });
+      },
+      caseDetails(index) {
+          this.$router.push({ name: "caseDetails", query: {id: index} });
+      }
   }
 };
 </script>
@@ -355,6 +368,11 @@ export default {
         color: @fontcolor68;
         line-height: 15px;
         margin-top: 35px;
+          cursor: pointer;
+
+          &:hover {
+              text-decoration: underline;
+          }
       }
     }
   }
@@ -536,6 +554,8 @@ export default {
       }
     }
     .content {
+      padding-top: 29px;
+
       img {
         width: 100%;
         display: block;

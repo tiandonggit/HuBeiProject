@@ -7,7 +7,7 @@
 
       <div class="content container cf">
         <div
-          class="block fl"
+          class="block fl pointer"
           :class="{margin: index%3 === 2}"
           v-for="(item, index) in caseList"
           :key="index"
