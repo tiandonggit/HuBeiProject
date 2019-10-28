@@ -26,15 +26,15 @@
               <div class="top cf">
                 <div class="input-block fl">
                   <p>姓名</p>
-                  <input type="text" placeholder="请输入您的名字">
+                  <input type="text" placeholder="请输入您的名字" />
                 </div>
                 <div class="input-block fl">
                   <p>邮箱</p>
-                  <input type="text" placeholder="请输入您的邮箱">
+                  <input type="text" placeholder="请输入您的邮箱" />
                 </div>
                 <div class="input-block fl">
                   <p>电话</p>
-                  <input type="text" placeholder="请输入您的电话号码">
+                  <input type="text" placeholder="请输入您的电话号码" />
                 </div>
               </div>
               <div class="middle">
@@ -157,13 +157,14 @@ export default {
             color: @fontColorAD;
           }
 
-          input, textarea {
-            font-size:14px;
-            font-family:Microsoft YaHei;
-            font-weight:400;
+          input,
+          textarea {
+            font-size: 14px;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
             border: 1px solid @borderBF;
-            line-height:14px;
-            border-radius:10px;
+            line-height: 14px;
+            border-radius: 10px;
           }
 
           .top {
@@ -218,14 +219,13 @@ export default {
           .bottom {
             width: 131px;
             height: 45px;
-              margin-top:13px;
+            margin-top: 13px;
             background: @bgMenu;
             border: 1px solid @borderBF;
             border-radius: 10px;
             display: flex;
-              justify-content: center;
-              align-items: center;
-
+            justify-content: center;
+            align-items: center;
 
             a {
               font-size: 16px;

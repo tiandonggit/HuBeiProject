@@ -35,7 +35,12 @@
               </ul>
             </div>
             <div class="right fr">
-              <div class="block fl pointer" v-for="(product, index) in productList" :key="index" @click="productDetails(index)">
+              <div
+                class="block fl pointer"
+                v-for="(product, index) in productList"
+                :key="index"
+                @click="productDetails(index)"
+              >
                 <img :src="product.img" alt />
                 <p>{{product.name1}}</p>
                 <p>{{product.name2}}</p>
@@ -78,23 +83,29 @@
             </div>
           </div>
           <div class="content">
-            <div class="swiper-container">
-              <div class="swiper-wrapper">
-                <div
-                  class="swiper-slide"
-                  v-for="(honoraryImg, index) in honoraryImgList"
-                  :key="index"
-                >
-                  <div class="img-box">
-                    <img :src="honoraryImg.img" class="swiper-lazy" />
-                    <p>{{honoraryImg.name}}</p>
-                  </div>
+            <div id="demo">
+              <div id="indemo">
+                <div id="demo1">
+                  <ul class="product_list1 roll_product clearfix">
+                    <li
+                      class="pointer"
+                      v-for="(honoraryImg, index) in honoraryImgList"
+                      :key="index"
+                    >
+                      <a :title="honoraryImg.name" class="img">
+                        <img :src="honoraryImg.img" :alt="honoraryImg.name" />
+                      </a>
+                      <p>{{honoraryImg.name}}</p>
+                    </li>
+                  </ul>
                 </div>
+                <div id="demo2"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
       <!-- 公司简介 -->
       <div class="company-profile">
         <div class="container">
@@ -123,8 +134,6 @@
 </template>
 
 <script>
-import Swiper from "swiper";
-import "swiper/dist/css/swiper.min.css";
 import commonHeader from "@/components/commonHeader.vue";
 import commonFooter from "@/components/commonFooter.vue";
 
@@ -170,67 +179,67 @@ export default {
         { name: "防水涂料", isActive: false }
       ],
       productList: [
-            {
-                name1: "TPZM-001",
-                name2: "自粘聚合物改性沥青防水卷材",
-                img: require("../assets/img/product_1.png")
-            },
-            {
-                name1: "TPZM-002",
-                name2: "预铺/湿铺防水卷材",
-                img: require("../assets/img/product_2.png")
-            },
-            {
-                name1: "TPZM-003",
-                name2: "SBS弹性体改性沥青防水卷材",
-                img: require("../assets/img/product_3.png")
-            },
-            {
-                name1: "TPZM-004",
-                name2: "耐根穿刺弹性体(SBS)改性沥青防水卷材",
-                img: require("../assets/img/product_4.png")
-            },
-            {
-                name1: "TPZM-005",
-                name2: "金属聚Z烯复合沥青自粘防水卷材",
-                img: require("../assets/img/product_5.png")
-            },
-            {
-                name1: "TPZM-006",
-                name2: "改性沥青聚烯胎耐根穿刺防水卷材",
-                img: require("../assets/img/product_6.png")
-            },
-            {
-                name1: "TPZM-007",
-                name2: " 强力交叉叠压膜高分子耐久反应粘 防水卷材",
-                img: require("../assets/img/product_7.png")
-            },
-            {
-                name1: "TPZM-008",
-                name2: "强力膜高分子反应型自粘防水卷材",
-                img: require("../assets/img/product_8.png")
-            },
-            {
-                name1: "TPZM-009",
-                name2: "高分子片材自粘胶膜防水卷材",
-                img: require("../assets/img/product_9.png")
-            },
-            {
-                name1: "TPZM-010",
-                name2: "高分子自粘胶膜防水卷材(非沥青基)",
-                img: require("../assets/img/product_10.png")
-            },
-            {
-                name1: "TPZM-011",
-                name2: "聚乙烯丙(涤)纶高分子复合防水卷材",
-                img: require("../assets/img/product_11.png")
-            },
-            {
-                name1: "TPZM-012",
-                name2: "聚氯乙烯( PVC )防水卷材",
-                img: require("../assets/img/product_12.png")
-            }
-        ],
+        {
+          name1: "TPZM-001",
+          name2: "自粘聚合物改性沥青防水卷材",
+          img: require("../assets/img/product_1.png")
+        },
+        {
+          name1: "TPZM-002",
+          name2: "预铺/湿铺防水卷材",
+          img: require("../assets/img/product_2.png")
+        },
+        {
+          name1: "TPZM-003",
+          name2: "SBS弹性体改性沥青防水卷材",
+          img: require("../assets/img/product_3.png")
+        },
+        {
+          name1: "TPZM-004",
+          name2: "耐根穿刺弹性体(SBS)改性沥青防水卷材",
+          img: require("../assets/img/product_4.png")
+        },
+        {
+          name1: "TPZM-005",
+          name2: "金属聚Z烯复合沥青自粘防水卷材",
+          img: require("../assets/img/product_5.png")
+        },
+        {
+          name1: "TPZM-006",
+          name2: "改性沥青聚烯胎耐根穿刺防水卷材",
+          img: require("../assets/img/product_6.png")
+        },
+        {
+          name1: "TPZM-007",
+          name2: " 强力交叉叠压膜高分子耐久反应粘 防水卷材",
+          img: require("../assets/img/product_7.png")
+        },
+        {
+          name1: "TPZM-008",
+          name2: "强力膜高分子反应型自粘防水卷材",
+          img: require("../assets/img/product_8.png")
+        },
+        {
+          name1: "TPZM-009",
+          name2: "高分子片材自粘胶膜防水卷材",
+          img: require("../assets/img/product_9.png")
+        },
+        {
+          name1: "TPZM-010",
+          name2: "高分子自粘胶膜防水卷材(非沥青基)",
+          img: require("../assets/img/product_10.png")
+        },
+        {
+          name1: "TPZM-011",
+          name2: "聚乙烯丙(涤)纶高分子复合防水卷材",
+          img: require("../assets/img/product_11.png")
+        },
+        {
+          name1: "TPZM-012",
+          name2: "聚氯乙烯( PVC )防水卷材",
+          img: require("../assets/img/product_12.png")
+        }
+      ],
       honoraryImgList: [
         {
           name: "3A级证书",
@@ -265,33 +274,40 @@ export default {
     };
   },
   mounted() {
-    this.swiper = new Swiper(".swiper-container", {
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false
-      },
-      loop: true,
-      speed: 700,
-      allowTouchMove: false,
-      centeredSlides: true,
-      spaceBetween: 25,
-      slidesOffsetBefore: 40,
-      slidesPerView: "auto",
-      on: {
-        slideChangeTransitionEnd: function() {
-          this.slides
-            .transition(this.params.autoplay.delay + this.params.speed)
-            .transform("translate3d(-60px, 0, 0)");
-        },
-        slideChangeTransitionStart: function() {
-          this.slides
-            .transition(this.params.speed)
-            .transform("translate3d(0, 0, 0)");
-        }
-      }
-    });
+    this.scroll();
   },
   methods: {
+    //滚动
+    scroll() {
+      //产品滚动
+      var speed = 30; //数字越大速度越慢
+      var tab = document.getElementById("demo");
+      var tab1 = document.getElementById("demo1");
+      var tab2 = document.getElementById("demo2");
+      var liwidth = tab1.getElementsByTagName("li");
+      var liwidths = liwidth[0].offsetWidth;
+      var length = this.honoraryImgList.length;
+      var mleft = 0;
+      var mright = 25;
+      var totalwidth = (liwidths + mleft + mright) * length * 2 + 300;
+      document.getElementById("indemo").style.width = totalwidth;
+      tab2.innerHTML = tab1.innerHTML;
+      function Marquee() {
+        if (tab2.offsetWidth - tab.scrollLeft <= 0)
+          tab.scrollLeft -= tab1.offsetWidth;
+        else {
+          tab.scrollLeft++;
+        }
+      }
+      var MyMar = setInterval(Marquee, speed);
+
+      tab.onmouseover = function() {
+        clearInterval(MyMar);
+      };
+      tab.onmouseout = function() {
+        MyMar = setInterval(Marquee, speed);
+      };
+    },
     selectProductMenu(index) {
       this.productMenuList.forEach((v, e) => {
         if (index === e) {
@@ -302,23 +318,24 @@ export default {
       });
     },
     productCenter() {
-        this.$router.push({ name: "productCenter" });
+      this.$router.push({ name: "productCenter" });
     },
     productDetails(index) {
-        this.$router.push({ name: "productDetails", query: {id: index} });
+      this.$router.push({ name: "productDetails", query: { id: index } });
     },
-      caseShows() {
-          this.$router.push({ name: "caseShows" });
-      },
-      caseDetails(index) {
-          this.$router.push({ name: "caseDetails", query: {id: index} });
-      }
+    caseShows() {
+      this.$router.push({ name: "caseShows" });
+    },
+    caseDetails(index) {
+      this.$router.push({ name: "caseDetails", query: { id: index } });
+    }
   }
 };
 </script>
 
 <style scoped lang="less">
 @import "../assets/css/cssCommon";
+
 #index {
   .swiper-slide {
     width: 272px !important;
@@ -368,11 +385,11 @@ export default {
         color: @fontcolor68;
         line-height: 15px;
         margin-top: 35px;
-          cursor: pointer;
+        cursor: pointer;
 
-          &:hover {
-              text-decoration: underline;
-          }
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }
@@ -403,7 +420,7 @@ export default {
         }
 
         li.active {
-          border-right: 1px solid #fff;
+          border-right: 1px solid @borderff;
         }
       }
 
@@ -433,6 +450,10 @@ export default {
             color: @fontColor4D;
             line-height: 18px;
           }
+
+          &:hover {
+            box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
+          }
         }
       }
     }
@@ -453,7 +474,7 @@ export default {
 
       .block {
         width: 357px;
-        height: 264px;
+        // height: 264px;
         position: relative;
         overflow: hidden;
         margin-bottom: 35px;
@@ -477,6 +498,10 @@ export default {
           font-family: Microsoft YaHei;
           font-weight: 400;
           color: @fontColorff;
+        }
+
+        &:hover p {
+          background: rgba(21, 79, 162, 0.9);
         }
       }
       .margin {
@@ -507,37 +532,56 @@ export default {
     }
 
     .content {
-      padding-top: 50px;
+      padding-top: 65px;
 
-      .img-box {
+      /*滚动*/
+      #demo {
+        overflow: hidden;
+        width: 100%;
+        margin: 0 auto;
+      }
+      #indemo {
+        float: left;
+        width: 800%;
+      }
+      #demo1 {
+        float: left;
+      }
+      #demo2 {
+        float: left;
+      }
+      .product_list1 li {
+        float: left;
+        margin-left: 15px;
+        margin-right: 15px;
+        _display: inline;
+        position: relative;
+      }
+      .product_list1 li a.img img {
         width: 272px;
         height: 186px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-
-        img {
-          max-width: 100%;
-          max-height: 100%;
-        }
-
-        p {
-          text-align: center;
-          position: absolute;
-          width: 100%;
-          left: 0;
-          bottom: 0;
-          line-height: 16px;
-          height: 39px;
-          padding-top: 15px;
-          background: @bgColor00;
-          opacity: 0.7;
-          font-size: 16px;
-          font-family: Microsoft YaHei;
-          font-weight: 400;
-          color: @fontColorff;
-        }
+      }
+      .product_list1 li p {
+        text-align: center;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        line-height: 16px;
+        height: 39px;
+        padding-top: 15px;
+        background: @bgColor00;
+        opacity: 0.7;
+        font-size: 16px;
+        font-family: Microsoft YaHei;
+        font-weight: 400;
+        width: 100%;
+        color: @fontColorff;
+      }
+      .product_list1 li:hover p {
+        background: rgba(21, 79, 162, 0.9);
+      }
+      .roll_product {
+        float: left;
       }
 
       /deep/ .el-carousel__item {

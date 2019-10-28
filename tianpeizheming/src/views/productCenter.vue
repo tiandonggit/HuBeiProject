@@ -135,14 +135,14 @@ export default {
     details(index) {
       this.$router.push({ name: "productDetails", query: { id: index } });
     },
-    select(index){
+    select(index) {
       this.productMenuList.forEach((v, e) => {
-        if(index === e) {
+        if (index === e) {
           this.productMenuList[e].isActive = true;
-        }else {
+        } else {
           this.productMenuList[e].isActive = false;
         }
-      })
+      });
     }
   }
 };
