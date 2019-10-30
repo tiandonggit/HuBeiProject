@@ -144,14 +144,14 @@ export default {
       productList2: [
         {
           id: 16,
-          name1: "TPZM-016",
-          name2: "单组份聚氨酯防水涂料",
+          name1: "SPU-301",
+          name2: "单组分聚氨酯防水涂料",
           img: require("../assets/img/product_16.png")
         },
         {
           id: 17,
-          name1: "TPZM-017",
-          name2: "双组份聚氨酯防水涂料",
+          name1: "JSA-101",
+          name2: "聚合物水泥防水涂料",
           img: require("../assets/img/product_17.png")
         }
         // {
