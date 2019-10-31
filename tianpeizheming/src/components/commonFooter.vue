@@ -26,10 +26,10 @@
               <p>手机: 135 8840 7189</p>
             </div>
           </div>
-          <div class="right fr">
+          <!-- <div class="right fr">
             <img src="../assets/img/QRCode.png" alt />
             <p>扫描关注官方微信</p>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -45,7 +45,7 @@ export default {
   data() {
     return {
       menuList: [
-        { name: "首页", isActive: true },
+        { name: "首页", isActive: false },
         { name: "关于我们", isActive: false },
         { name: "荣誉资质", isActive: false },
         { name: "产品中心", isActive: false },
@@ -55,8 +55,14 @@ export default {
     };
   },
   methods: {
-    selectMenu() {
+    selectMenu(index) {
       // 跳转相应路由
+      index === 0 && this.$router.push({ name: "index" });
+      index === 1 && this.$router.push({ name: "aboutUs" });
+      index === 2 && this.$router.push({ name: "honoraryCertificate" });
+      index === 3 && this.$router.push({ name: "productCenter" });
+      index === 4 && this.$router.push({ name: "caseShows" });
+      index === 5 && this.$router.push({ name: "contactUs" });
     }
   }
 };

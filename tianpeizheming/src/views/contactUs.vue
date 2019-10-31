@@ -14,10 +14,10 @@
               <p>地址: 武汉市江汉区江兴路22号B栋3楼305室</p>
               <p>电话: 0716-5208678</p>
               <p>手机: 135 8840 7189</p>
-              <div class="code">
+              <!-- <div class="code">
                 <img src="../assets/img/QRCode.png" alt />
                 <p>扫描关注官方微信</p>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="right fr">
@@ -26,24 +26,24 @@
               <div class="top cf">
                 <div class="input-block fl">
                   <p>姓名</p>
-                  <input type="text" placeholder="请输入您的名字" />
+                  <input type="text" v-model="name" placeholder="请输入您的名字" />
                 </div>
                 <div class="input-block fl">
                   <p>邮箱</p>
-                  <input type="text" placeholder="请输入您的邮箱" />
+                  <input type="text" v-model="email" placeholder="请输入您的邮箱" />
                 </div>
                 <div class="input-block fl">
                   <p>电话</p>
-                  <input type="text" placeholder="请输入您的电话号码" />
+                  <input type="text" v-model="tel" placeholder="请输入您的电话号码" />
                 </div>
               </div>
               <div class="middle">
                 <div class="input-block fl">
                   <p>内容</p>
-                  <textarea placeholder="请输入您的名字"></textarea>
+                  <textarea v-model="message" placeholder="请输入留言内容"></textarea>
                 </div>
               </div>
-              <div class="bottom fr">
+              <div class="bottom fr pointer" @click="submitMessage()">
                 <a>提交留言</a>
               </div>
             </div>
@@ -73,10 +73,26 @@ export default {
       num: 5,
       BgImg: require("../assets/img/contact_bg.png"),
       ChName: "联系我们",
-      EnName: "Contact us"
+      EnName: "Contact us",
+      name: "",
+      email: "",
+      tel: "",
+      message: ""
     };
   },
-  methods: {}
+  methods: {
+    submitMessage() {
+      if (!this.message) {
+        alert("请输入留言内容")
+        return;
+      }
+      alert("您的留言已获悉，谢谢您的留言");
+      this.name = "";
+      this.email = "";
+      this.tel = "";
+      this.message = "";
+    }
+  }
 };
 </script>
 
